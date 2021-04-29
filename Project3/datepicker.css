@@ -1,0 +1,36 @@
+body {
+  height: 100%;
+  background-color: darksalmon;
+}
+
+.normal {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.normal:hover {
+  cursor: pointer;
+}
+
+.dimmed {
+  opacity: 50%;
+  color: aquamarine;
+}
+
+table {
+  width: 400px;
+}
+
+table td {
+  text-align: center;
+}
+
+.button {
+  color: blueviolet;
+}
+.button:hover {
+  cursor: pointer;
+}
+.header {
+  font-weight: bold;
+}

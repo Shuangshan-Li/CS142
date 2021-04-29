@@ -1,0 +1,41 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#container {
+  height: 100%;
+  /* stop wrapping in inline-block display */
+  float: left;
+  white-space: nowrap;
+}
+
+#container .box {
+  width: 100px;
+  height: 150px;
+  margin: 0 5px;
+  display: inline-block;
+  border-left: 10px dotted #d0d0ff;
+  padding-left: 10px;
+  background-color: #eeeff2;
+  box-sizing: border-box;
+  font-size: 40px;
+  font-family: Tahoma;
+  position: relative;
+}
+
+#container div:last-child {
+  /* Another way to position bottom right without using position attr*/
+  /* align-self: flex-end;
+  margin-left: auto; */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#container .box:hover {
+  background-color: yellow;
+  color: goldenrod;
+  cursor: pointer;
+}

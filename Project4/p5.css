@@ -1,0 +1,23 @@
+#router-nav-bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: cornflowerblue;
+    border-radius: 15px;
+  }
+
+  
+  .router-link{
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  .router-link:hover {
+    background-color: blue;
+  }

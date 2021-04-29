@@ -1,0 +1,27 @@
+/* used gradients and transition */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#container {
+  height: 100%;
+  float: left;
+  white-space: nowrap;
+}
+#container .box {
+  width: 100px;
+  height: 150px;
+  margin: 0 5px;
+  background-image: -webkit-linear-gradient(red, yellow);
+  transition: height 2s;
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: 40px;
+  font-family: Tahoma;
+}
+
+#container .box:hover {
+  height: 500px;
+}
