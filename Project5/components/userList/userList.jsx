@@ -1,13 +1,8 @@
-import React from 'react';
-import {
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-}
-from '@material-ui/core';
-import './userList.css';
+import React from "react";
+import {Link} from "react-router-dom";
+import {Divider, List, ListItem, ListItemText} from "@material-ui/core";
+import "./userList.css";
+import fetchModel from "../../lib/fetchModelData";
 
 /**
  * Define UserList, a React componment of CS142 project #5
@@ -15,33 +10,29 @@ import './userList.css';
 class UserList extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      users: [],
+    };
+    let promise = fetchModel(`http://localhost:3000/user/list`);
+    promise.then((response) => {
+      this.setState({users: response.data});
+    });
   }
 
   render() {
+    let displayList = this.state.users.map((u) => {
+      return (
+        <Link to={`/users/${u._id}`} key={u._id}>
+          <ListItem>
+            <ListItemText primary={`${u.first_name} ${u.last_name}`} />
+          </ListItem>
+          <Divider />
+        </Link>
+      );
+    });
     return (
       <div>
-        <Typography variant="body1">
-          This is the user list, which takes up 3/12 of the window.
-          You might choose to use <a href="https://material-ui.com/demos/lists/">Lists</a> and <a href="https://material-ui.com/demos/dividers">Dividers</a> to
-          display your users like so:
-        </Typography>
-        <List component="nav">
-          <ListItem>
-            <ListItemText primary="Item #1" />
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemText primary="Item #2" />
-          </ListItem>
-          <Divider />
-          <ListItem>
-            <ListItemText primary="Item #3" />
-          </ListItem>
-          <Divider />
-        </List>
-        <Typography variant="body1">
-          The model comes in from window.cs142models.userListModel()
-        </Typography>
+        <List component="nav">{displayList}</List>
       </div>
     );
   }

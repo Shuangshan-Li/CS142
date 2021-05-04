@@ -1,29 +1,54 @@
-import React from 'react';
-import {
-  Typography
-} from '@material-ui/core';
-import './userDetail.css';
-
+import React, {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
+import {Typography, Grid, Button} from "@material-ui/core";
+import "./userDetail.css";
+import fetchModel from "../../lib/fetchModelData";
 
 /**
  * Define UserDetail, a React componment of CS142 project #5
  */
-class UserDetail extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+function UserDetail(props) {
+  const [user, setUser] = useState({
+    _id: "",
+    first_name: "",
+    last_name: "",
+    location: "",
+    description: "",
+    occupation: "",
+  });
 
-  render() {
-    return (
-      <Typography variant="body1">
-        This should be the UserDetail view of the PhotoShare app. Since
-        it is invoked from React Router the params from the route will be
-        in property match. So this should show details of user:
-        {this.props.match.params.userId}. You can fetch the model for the
-        user from window.cs142models.userModel(userId).
-      </Typography>
+  useEffect(() => {
+    let promise = fetchModel(
+      `http://localhost:3000/user/${props.match.params.userId}`
     );
-  }
+    promise.then((response) => {
+      setUser(response.data);
+      props.changeView(
+        "Info about ",
+        `${response.data.first_name} ${response.data.last_name}`
+      );
+    });
+  }, [props.match.params.userId]);
+
+  return (
+    <Grid container justify="space-evenly" alignItems="center">
+      <Grid xs={8} item>
+        <Typography variant="h3">
+          {`${user.first_name} ${user.last_name}`}
+        </Typography>
+        <Typography variant="h5">
+          {user.occupation} <br />
+          Based in {user.location}
+        </Typography>
+        <Typography variant="body1">{user.description}</Typography>
+      </Grid>
+      <Grid xs={4} item>
+        <Button variant="contained" size="large">
+          <Link to={`/photos/${user._id}`}>See photos</Link>
+        </Button>
+      </Grid>
+    </Grid>
+  );
 }
 
 export default UserDetail;
