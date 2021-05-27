@@ -1,0 +1,38 @@
+Project #8 - Submission form
+
+
+Story number and name: 2 - @mentions in comments
+Story points: 6
+Brief description to see the story in action:
+    In the comment box of a photo type "@" to mention an existing user. After "@" there will be auto-complete
+    suggestions for names. User can hit "enter" or "tab" or click to auto-complete. In UserDetail page, photos
+    where the user is mentioned will appear
+
+
+Story number and name: 3 - Visibility control of photos
+Story points: 4
+Brief description to see the story in action:
+    On upload photo dialogue, user can specify permission. If specified, only designated other users can view this photo. Otherwise
+    this photo is visible to all.
+
+
+Story number and name: 6 - Photo “like” votes
+Story points: 4
+Brief description to see the story in action:
+    User can like or unlike a photo
+
+
+Story number and name: 7 - favorite lists of photos for users
+Story points: 6
+Brief description to see the story in action:
+    User can add a photo to her favorite list. Click favorites on topbar will show favorites page with all such photos.
+    user can remove photo from this list. user can click on the photo to view a larger version in a pop-up view/ Modal.
+
+Total Story Points: 20
+
+Marketing Video URL (ensure permissions are set to public viewing): https://www.youtube.com/watch?v=R3Lj46_WlmM
+
+Is it OK with you if we post your Marketing Video URL on the class discussion forum? Yes
+
+Any special instructions for Grading (should be easy to run app from new machine): No
+
